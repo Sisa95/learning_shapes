@@ -1,0 +1,24 @@
+{
+  "name": "learning_shapes",
+  "version": "1.0.0",
+  "description": "# Tools Dom Handlebars API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sisa95/learning_shapes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sisa95/learning_shapes/issues"
+  },
+  "homepage": "https://github.com/Sisa95/learning_shapes#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
