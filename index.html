@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+    <link rel="stylesheet" href="./public/css/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Welcome to zooland play</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 lion" style="background-image: url('./public/images/lion_roar.jpg');" onclick="playLion()">
+        
+
+                <button onclick="playLion()">PLAY</button>
+                <audio id="lion" src="./public/sounds/lion.mp3"></audio>
+        
+            </div>
+            
+            <div class="col-4 lion" style="background-image: url('./public/images/lion_roar.jpg');" onclick="buffalo()">
+        
+
+                <button onclick="buffalo()">PLAY</button>
+                <audio id="buffalo" src="./public/sounds/buffalo.mp3"></audio>
+        
+            </div>
+
+
+            <div class="col-4 lion" style="background-image: url('./public/images/lion_roar.jpg');" onclick="zebra()">
+        
+                <button onclick="zebra()">PLAY</button>
+                <audio id="zebra" src="./public/sounds/zebra.mp3"></audio>
+        
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <a href="./lion.html"><button>
+                    START
+                </button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playLion() {
+          var lion = document.getElementById("lion");
+        //   var bufffalo = document.getElementById("buffalo");
+        //   var zebra = document.getElementById("zebra");
+          lion.play();
+        }
+
+        function buffalo() {
+        //   var audio = document.getElementById("lion");
+        var buffalo = document.getElementById("buffalo");
+        buffalo.play();
+        }
+
+        function zebra() {
+          var zebra = document.getElementById("zebra");
+          zebra.play();
+        }
+      </script>
+    
+</body>
+</html>

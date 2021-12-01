@@ -1,0 +1,40 @@
+{
+  "name": "animals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "balanced-match": "^1.0.2",
+    "body-parser": "^1.19.0",
+    "brace-expansion": "^1.1.11",
+    "concat-map": "^0.0.1",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "fs.realpath": "^1.0.0",
+    "glob": "^7.2.0",
+    "graceful-fs": "^4.2.8",
+    "handlebars": "^4.7.7",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "minimatch": "^3.0.4",
+    "minimist": "^1.2.5",
+    "neo-async": "^2.6.2",
+    "once": "^1.4.0",
+    "path-is-absolute": "^1.0.1",
+    "pg": "^8.7.1",
+    "source-map": "^0.6.1",
+    "uglify-js": "^3.14.4",
+    "wordwrap": "^1.0.0",
+    "wrappy": "^1.0.2"
+  },
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
