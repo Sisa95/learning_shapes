@@ -11,6 +11,13 @@ background-image: url("/public/images/background.jpg");
 
 } */
 
+.model-one{
+	width: 500px;
+    background: #fff;
+    margin: 0 auto;
+	padding: 0 45px;
+}
+
 
 h2{
 	text-align: center;
