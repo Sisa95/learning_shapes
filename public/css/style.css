@@ -2,10 +2,8 @@
 
 body{
 background-image: url("/public/images/background.jpg");
-/* background-position: center; */
 background-repeat: no-repeat;
 background-size: cover;
-/* background-color: #90b188; */
 
 }
 
@@ -15,10 +13,6 @@ background-size: cover;
     background:grey;
 }
 
-<<<<<<< HEAD
-=======
-} */
->>>>>>> 248fa82a509c4982ea3d7fb9d99e5b24956b0a15
 .btn-position{
 	position: absolute;
     top: 50%;
@@ -41,7 +35,6 @@ img{
     width: 100%;
 }
 
-
 h2{
 	background-image: -webkit-linear-gradient(bottom, blue, yellowgreen, red, purple);
     -webkit-background-clip: text;
@@ -54,7 +47,6 @@ h2{
     font-size: 55px;
     line-height: 55px;
 }
-<<<<<<< HEAD
 
 .instructions{
 	background-image: -webkit-linear-gradient(bottom, blue, yellowgreen, red, purple);
@@ -68,9 +60,6 @@ h2{
     font-size: 18px;
     line-height: 18px;
 }
-
-=======
-
 .instructions{
 	background-image: -webkit-linear-gradient(bottom, blue, yellowgreen, red, purple);
     -webkit-background-clip: text;
@@ -84,8 +73,6 @@ h2{
     line-height: 18px;
 }
 
-<<<<<<< HEAD
-=======
 /* Progress Bar */
 .progress-bar{
     height:50px;
@@ -96,13 +83,6 @@ h2{
     width: 600px;
 }
 
->>>>>>> 727e2ee9b6f9aa7e6d93a822b8826eae26ed49c2
-/* .col-4{
-	border: 1px solid;
-	height: 300px;
-
-} */
->>>>>>> 248fa82a509c4982ea3d7fb9d99e5b24956b0a15
 #clock {
 	width: 50px;
 	height: 50px;
@@ -112,11 +92,9 @@ h2{
     visibility: hidden;
 }
 
-span {
+#seconds {
 	display: block;
 	width: 100%;
 	margin: auto;
-	/* padding-top: 60px; */
 	text-align: center;
-	/* font-size: 150px; */
 }
