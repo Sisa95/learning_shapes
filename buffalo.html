@@ -1,26 +1,63 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./public/css/bootstrap.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <!-- <link rel="stylesheet" href=""> -->
-  </head>
-  <div>Teachable Machine Image Model</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
+
+</head>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-12">
+            <h2>Challenge One Champ GoGoGoooo!/////////////////</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="model-one">
+            <div class="instructions">Hello champ! Click Play and show me which animal is this</div>
+            <div class="col-4 lion" onclick="buffalo()">
+                <button class="animal-btn" onclick="buffalo()">PLAY</button>
+                <audio id="buffalo" src="./public/sounds/buffalo.mp3"></audio>
+        
+            </div>
+   
+            <div class="row">
+                <div class="col-6">
+                    <div id="webcam-container"></div>
+                </div>
+                <div class="col-6" id="clock">
+                    <span id="seconds">10</span>
+                </div>
+            </div>
+            <div id="label-container"></div>
+
+
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-12">
+        <span class="message"></span>
+    </div>
+</div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
+    function buffalo() {
+        var buffalo = document.getElementById("buffalo");
+        buffalo.play();
+        }
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "./my_model/";
+    const URL = "https://teachablemachine.withgoogle.com/models/IsE7tDsfT/";
 
     let model, webcam, labelContainer, maxPredictions;
 
@@ -58,15 +95,92 @@
     }
 
     // run the webcam image through the image model
+    timeLeft = 10;
+
+    let animalCounter;
+
+    const animals = ["buffalo","lion", "zebra"]
+    let currentAnimalIndex = 0;
+
+    let animalLookingFor = animals[currentAnimalIndex];
+
+    let retryCount = 3;
+
     async function predict() {
+        var message = document.querySelector(".message")
+
+
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+
             labelContainer.childNodes[i].innerHTML = classPrediction;
+
+            if (prediction[i].className == animalLookingFor && prediction[i].probability.toFixed(2) > 0.9) {
+                // stop the timeout that is looking for animals...
+                clearInterval(animalCounter);
+                animalLookingFor = "";
+                animalCounter = null;
+                message.style.color = "green";
+                message.style.fontSize = "2.5rem";
+                message.innerHTML = "Welldone Let's Go To The NEXT CHALLENGE"
+                document.getElementById("clock").innerHTML = "";
+
+
+                setTimeout(function () {
+                    window.location = "./zebra.html";
+                }, 5000);
+                return
+            }
+        }
+
+        if (prediction.className !== "buffalo") {
+            // let limitedTries = 3;
+
+            let clock = document.getElementById("seconds")
+            clock.style.visibility = "visible";
+
+        }
+
+        function countdown() {
+            timeLeft--;
+            if (timeLeft > 0) {
+                document.getElementById("seconds").innerHTML = String(timeLeft);
+
+            } else if (timeLeft === 0) {
+                retryCount--;
+                if (retryCount == 0) {
+                    clearInterval(animalCounter)
+                    message.style.color = "red";
+                    message.innerHTML = "GAME OVER!"
+
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 5000);
+                } else {
+                    message.style.color = "orange";
+                    message.innerHTML = "Let's try again..."
+                    timeLeft = 10
+                    setTimeout(function () {
+                        message.innerHTML = "";
+                    }, 1000)
+                }
+            }
+        };
+
+
+        // only start the timer if it's not already running and there is an animal to look for
+        if (!animalCounter && animalLookingFor) {
+            animalCounter = setInterval(countdown, 1000);
         }
     }
+
+    window.onload = function () {
+        init();
+    };
+
 </script>
 
 </html>
