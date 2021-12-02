@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animals</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="./public/css/bootstrap.css">
     <link rel="stylesheet" href="./public/css/style.css">
 
@@ -13,42 +16,65 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Welcome to zooland play</h2>
+                <h2>Welcome to zoolearn and play</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-4 lion" style="background-image: url('./public/images/lion_roar.jpg');" onclick="playLion()">
-        
-
-                <button onclick="playLion()">PLAY</button>
+            <div class="col-4 lion"  onclick="playLion()">
+                <img src="./public/images/mylion.png" class="lion" onclick="playLion()">
+                <button class="btn-position" onclick="playLion()">PLAY</button>
                 <audio id="lion" src="./public/sounds/lion.mp3"></audio>
         
             </div>
             
-            <div class="col-4 lion" style="background-image: url('./public/images/lion_roar.jpg');" onclick="buffalo()">
-        
-
-                <button onclick="buffalo()">PLAY</button>
+            <div class="col-4 lion" onclick="buffalo()">
+                <img src="./public/images/buffalo.png" onclick="buffalo()">
+                <button class="btn-position" onclick="buffalo()">PLAY</button>
                 <audio id="buffalo" src="./public/sounds/buffalo.mp3"></audio>
         
             </div>
 
 
-            <div class="col-4 lion" style="background-image: url('./public/images/lion_roar.jpg');" onclick="zebra()">
-        
-                <button onclick="zebra()">PLAY</button>
+            <div class="col-4 lion" onclick="zebra()">
+                <img src="./public/images/zebra.png" onclick="buffalo()">
+                <button class="btn-position" onclick="zebra()">PLAY</button>
                 <audio id="zebra" src="./public/sounds/zebra.mp3"></audio>
         
             </div>
         </div>
 
         <div class="row">
+            <div class="col-4 lion" onclick="playCroco()">
+                <img src="./public/images/croco.png" class="lion" onclick="playCroco()">
+                <button class="btn-position" onclick="playCroco()">PLAY</button>
+                <audio id="croc" src="./public/sounds/crocodile.mp3"></audio>
+        
+            </div>
+            
+            <div class="col-4 lion" onclick="playElephant()">
+                <img src="./public/images/elephant.png" onclick="playElephant()">
+                <button class="btn-position" onclick="playElephant()">PLAY</button>
+                <audio id="elephant" src="./public/sounds/elephant.mp3"></audio>
+        
+            </div>
+
+
+            <div class="col-4 lion" onclick="playHippo()">
+                <img src="./public/images/hippo.png" onclick="playHippo()">
+                <button class="btn-position" onclick="playHippo()">PLAY</button>
+                <audio id="hippo" src="./public/sounds/hippo.mp3"></audio>
+        
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-12">
-                <a href="./lion.html"><button>
+                <a href="./lion.html"><button class="btn btn-primary">
                     START
                 </button></a>
             </div>
         </div>
+
     </div>
 
     <script>
@@ -66,6 +92,22 @@
           var zebra = document.getElementById("zebra");
           zebra.play();
         }
+
+        function playCroco() {
+            var croco = document.getElementById('croc');
+            croco.play();
+        }
+
+        function playElephant() {
+            var elephant = document.getElementById('elephant');
+            elephant.play();
+        }
+
+        function playHippo() {
+            var hippo = document.getElementById('hippo');
+            hippo.play();
+        }
+
       </script>
     
 </body>

@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./public/css/bootstrap.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <!-- <link rel="stylesheet" href=""> -->
-  </head>
-  <div>Teachable Machine Image Model</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
+
+</head>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Challenge One Champ GoGoGoooo!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="model-one">
+            <div class="instructions">Hello champ! Click Play and show me which animal is this</div>
+                <button type="button" onclick="init()">Start</button>
+                <div id="webcam-container"></div>
+                <span class="message"></span>
+                <div id="label-container"></div>
+    
+            <div id="clock">
+                <span id="seconds">5</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <span>Progress Bar</span>
+        <progress class="levelOne" id="progress" value="0" max="100"> 0 </progress>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js" integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+
+<script type="template-x" class="progressTemplate">
+<div>
+    {{#each progressData}}
+    <progress>{{this}}</progress>
+    {{/each}}
+</div>
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
@@ -20,7 +50,7 @@
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "./my_model/";
+    const URL = "https://teachablemachine.withgoogle.com/models/IsE7tDsfT/";
 
     let model, webcam, labelContainer, maxPredictions;
 
