@@ -26,6 +26,12 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <span>Progress Bar</span>
+        <progress class="noLevel" id="progress" value="0" max="100"> 0 </progress>
+    </div>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -75,7 +81,9 @@
     timeLeft = 10;
     async function predict() {
         var message = document.querySelector(".message")
+    };
 
+    async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
         for (let i = 0; i < maxPredictions; i++) {
@@ -125,5 +133,5 @@
     };
 
 </script>
-
+<script src="app.js"></script>
 </html>
