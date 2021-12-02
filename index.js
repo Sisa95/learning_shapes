@@ -21,7 +21,6 @@ const pool = new Pool({
 });
 
 const app = express();
-const PORT = process.env.PORT || 3012;
 
 // enable the req.body object - to allow us to use HTML forms
 app.use(express.json());
@@ -32,14 +31,16 @@ app.use(express.static('public'));
 
 // add more middleware to allow for templating support
 
-app.engine('handlebars', exphbs.engine());
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-app.get('/', async function (req, res) {
-	res.render('index', {
+// app.get('/', async function (req, res) {
+// 	res.render('index', {
 		
-	});
-});
+// 	});
+// });
+
+const PORT = process.env.PORT || 3012;
 
 app.listen(PORT, function () {
 	console.log(`Animals on port ${PORT}`)

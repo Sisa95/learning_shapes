@@ -2,6 +2,8 @@ const levelOneElem = document.querySelector('.levelOne');
 const levelTwoElem = document.querySelector('.levelTwo');
 const levelThreeElem = document.querySelector('.levelThree');
 
+
+
 // create template 
 const progressTemplateTxt = document.querySelector('.progressTemplate');
 // compile template
