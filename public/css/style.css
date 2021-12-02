@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
 body{
-background-image: url("/public/images/background.jpg");
+background-image: url("/images/background.jpg");
 background-repeat: no-repeat;
 background-size: cover;
 

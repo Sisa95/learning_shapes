@@ -1,0 +1,129 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2><em>LAST CHALLENGE</em> Champ GoGoGoooo!</h2>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="model-one">
+            <div class="instructions">Hello champ! Click Play and show me which animal is this</div>
+                <button type="button" onclick="init()">Start</button>
+                <div id="webcam-container"></div>
+                <span class="message"></span>
+                <div id="label-container"></div>
+    
+            <div id="clock">
+                <span id="seconds">5</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <span>Progress Bar</span>
+        <progress class="noLevel" id="progress" value="0" max="100"> 0 </progress>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+    // More API functions here:
+    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/AHaXpT933/";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    // Load the image model and setup the webcam
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // Convenience function to setup a webcam
+        const flip = true; // whether to flip the webcam
+        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append elements to the DOM
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function loop() {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    // run the webcam image through the image model
+    timeLeft = 10;
+    async function predict() {
+        var message = document.querySelector(".message")
+    };
+
+    async function predict() {
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+
+            if (prediction[i].className == "zebra" && prediction[i].probability.toFixed(2) > 0.9) {
+                message.innerHTML = "Welldone click NEXT to go to NEXT CHALLENGE"
+                document.getElementById("clock").innerHTML = "";
+                setTimeout(function () {
+                    window.location = "./buffalo.html"
+                    //file:///home/codex/Desktop/Animals/lion.html
+                }, 5000);
+                return
+            }
+        }
+
+        if (prediction.className !== "zebra") {
+            let limitedTries = 3;
+
+            let clock = document.getElementById("seconds")
+            clock.style.visibility = "visible";
+            function countdown() {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    setTimeout(countdown, 1000);
+                    document.getElementById("seconds").innerHTML = String(timeLeft);
+
+                } else if(timeLeft === 0){
+                    //when timeLeft == 0
+                    //decrease chances by 1
+                    //display message you have x tries
+                    //when tries = 0
+                    //redirect to landing page
+                    alert(timeLeft)
+                }
+            };
+
+
+        }
+        setTimeout(countdown, 1000);
+    }
+
+    window.onload = function () {
+        init();
+    };
+
+</script>
+<script src="app.js"></script>

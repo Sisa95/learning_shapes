@@ -28,7 +28,7 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

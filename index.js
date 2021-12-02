@@ -35,7 +35,30 @@ app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 
 app.get('/', async function (req, res) {
+	res.redirect('/index.html');
+});
+
+app.get('/index.html', async function (req, res) {
 	res.render('index', {
+		
+	});
+});
+
+
+app.get('/lion.html', async function (req, res) {
+	res.render('lion', {
+		
+	});
+});
+
+app.get('/buffalo.html', async function (req, res) {
+	res.render('buffalo', {
+		
+	});
+});
+
+app.get('/zebra.html', async function (req, res) {
+	res.render('zebra', {
 		
 	});
 });
