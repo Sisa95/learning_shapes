@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="./public/css/bootstrap.css">
     <link rel="stylesheet" href="./public/css/style.css">
-
 </head>
 <div class="container">
     <div class="row">
@@ -29,7 +28,24 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <span>Progress Bar</span>
+        <progress class="noLevel" id="progress" value="0" max="100"> 0 </progress>
+    </div>
+
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js" integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+
+<script type="template-x" class="progressTemplate">
+<div>
+    {{#each progressData}}
+    <progress>{{this}}</progress>
+    {{/each}}
+</div>
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
@@ -121,5 +137,6 @@
 
 
 </script>
+<script src="app.js"></script>
 
 </html>

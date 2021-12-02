@@ -58,6 +58,19 @@ h2{
     line-height: 18px;
 }
 
+<<<<<<< HEAD
+=======
+/* Progress Bar */
+.progress-bar{
+    height:50px;
+    width: 200px;
+}
+
+#progress{
+    width: 600px;
+}
+
+>>>>>>> 727e2ee9b6f9aa7e6d93a822b8826eae26ed49c2
 /* .col-4{
 	border: 1px solid;
 	height: 300px;

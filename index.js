@@ -21,7 +21,6 @@ const pool = new Pool({
 });
 
 const app = express();
-const PORT = process.env.PORT || 3012;
 
 // enable the req.body object - to allow us to use HTML forms
 app.use(express.json());
@@ -40,6 +39,8 @@ app.get('/', async function (req, res) {
 		
 	});
 });
+
+const PORT = process.env.PORT || 3012;
 
 app.listen(PORT, function () {
 	console.log(`Animals on port ${PORT}`)
