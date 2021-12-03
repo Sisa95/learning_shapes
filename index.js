@@ -63,6 +63,12 @@ app.get('/zebra.html', async function (req, res) {
 	});
 });
 
+app.get('/congrats.html', async function (req, res) {
+	res.render('congrats', {
+		
+	});
+});
+
 const PORT = process.env.PORT || 3012;
 
 app.listen(PORT, function () {

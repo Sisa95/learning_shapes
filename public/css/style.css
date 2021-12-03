@@ -49,19 +49,7 @@ h2{
 }
 
 .instructions{
-	background-image: -webkit-linear-gradient(bottom, blue, yellowgreen, red, purple);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 0;
-    padding: 20px 0;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 18px;
-}
-.instructions{
-	background-image: -webkit-linear-gradient(bottom, blue, yellowgreen, red, purple);
+	background-image: -webkit-linear-gradient(bottom, blue, rgb(233, 236, 42), red, rgb(22, 117, 30));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
@@ -84,17 +72,24 @@ h2{
 }
 
 #clock {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	background-color: lightgrey;
-	margin: auto;
     visibility: hidden;
 }
 
 #seconds {
-	display: block;
-	width: 100%;
+    width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: rgb(218, 18, 18);
+    color: #fff;
 	margin: auto;
-	text-align: center;
+    visibility: hidden;
+    font-size: 45px;
+}
+
+/* Last page styles */
+.center {
+    width:500px;
+    margin: auto;
+    text-align: center;
+    background-color: #fff;
 }
