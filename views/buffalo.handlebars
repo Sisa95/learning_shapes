@@ -1,9 +1,18 @@
-
 <div class="container">
-    
+
     <div class="row">
         <div class="col-12">
             <h2>Challenge <em>TWO</em> Champ GoGoGoooo!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+            <div class="progress" style="margin-bottom: 50px;">
+                <div class="progress-done" data-done="70">
+                    <span class="bar"></span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -12,9 +21,9 @@
             <div class="col-4 lion" onclick="buffalo()">
                 <button class="animal-btn" onclick="buffalo()">PLAY</button>
                 <audio id="buffalo" src="./sounds/buffalo.mp3"></audio>
-        
+
             </div>
-   
+
             <div class="row">
                 <div class="col-6">
                     <div id="webcam-container"></div>
@@ -42,7 +51,20 @@
     function buffalo() {
         var buffalo = document.getElementById("buffalo");
         buffalo.play();
-        }
+    }
+
+
+    if (localStorage['progress_Bar']) {
+        progress = JSON.parse(localStorage.getItem('progress_Bar'));
+
+        let progressBarLocal = progress
+        const progressBARLocal = document.querySelector('.progress-done');
+
+        document.querySelector(".bar").innerHTML = progressBarLocal
+
+        progressBARLocal.style.width = progressBarLocal + "%"
+        progressBARLocal.style.opacity = 1;
+    }
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
@@ -61,7 +83,7 @@
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        webcam = new tmImage.Webcam(350, 350, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -85,7 +107,7 @@
 
     let animalCounter;
 
-    const animals = ["buffalo","lion", "zebra"]
+    const animals = ["buffalo", "lion", "zebra"]
     let currentAnimalIndex = 0;
 
     let animalLookingFor = animals[currentAnimalIndex];
@@ -112,6 +134,25 @@
                 message.style.color = "green";
                 message.style.fontSize = "2.5rem";
                 message.innerHTML = "Welldone Let's Go To The NEXT CHALLENGE"
+
+
+
+                if (localStorage['progress_Bar']) {
+                    progress = JSON.parse(localStorage.getItem('progress_Bar'));
+                }
+
+                let progressBar = progress + 33.33
+
+                const progressBAR = document.querySelector('.progress-done');
+
+                document.querySelector(".bar").innerHTML = progressBar
+
+                progressBAR.style.width = progressBar + "%"
+                progressBAR.style.opacity = 1;
+
+
+                localStorage.setItem("progress_Bar", JSON.stringify(progressBar));
+
                 document.getElementById("clock").innerHTML = "";
 
 

@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -11,7 +10,18 @@
     <div class="row">
         <div class="col-12">
 
+            <div class="progress" style="margin-bottom: 50px;">
+                <div class="progress-done" data-done="70">
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
             <div class="model-one">
+
 
                 <div class="instructions">Hello champ! Click Play and show me which animal is this</div>
                 <div class="play" onclick="playLion()">
@@ -48,6 +58,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
 
+
+
     function playLion() {
         var lion = document.getElementById("lion");
         lion.play();
@@ -74,7 +86,7 @@
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(300, 300, flip); // width, height, flip
+        webcam = new tmImage.Webcam(350, 350, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -119,12 +131,30 @@
 
             if (prediction[i].className == animalLookingFor && prediction[i].probability.toFixed(2) > 0.9) {
                 // stop the timeout that is looking for animals...
+                let progress;
                 clearInterval(animalCounter);
                 animalLookingFor = "";
                 animalCounter = null;
                 message.style.color = "green";
                 message.style.fontSize = "2.5rem";
                 message.innerHTML = "Welldone Let's Go To The NEXT CHALLENGE"
+
+
+                if (localStorage['progress_Bar']) {
+                    progress = JSON.parse(localStorage.getItem('progress_Bar'));
+                }
+                let progressBar = progress + 33.33
+
+                const progressBAR = document.querySelector('.progress-done');
+
+                document.querySelector(".bar").innerHTML = progressBar
+
+                progressBAR.style.width = progressBar + "%"
+                progressBAR.style.opacity = 1;
+
+
+                localStorage.setItem("progress_Bar", JSON.stringify(progressBar));
+
                 document.getElementById("clock").innerHTML = "";
 
 
